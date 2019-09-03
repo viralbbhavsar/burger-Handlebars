@@ -1,7 +1,17 @@
 var express = require("express");
 var router = express.Router();
-var cat = require("../models/burger.js");
+var burger = require("../models/burger.js");
 
+//All Routes
+router.get("/", function(req, res) {
+    burger.all(function(data) {
+      var hbsObject = {
+        burgers: data
+      };
+      console.log(hbsObject);
+      res.render("index", hbsObject);
+    });
+  });
 
 
 
