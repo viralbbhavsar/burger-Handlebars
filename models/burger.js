@@ -6,8 +6,6 @@ var burger = {
           cb(res);
         });
     }
-
-
 }
 
 

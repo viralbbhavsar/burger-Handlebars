@@ -1,30 +1,37 @@
-<h1>EAT DA BURGER</h1>
-<ul>
-  {{#each burgers}}
-    <button class="eat-burger" data-id="{{this.id}}">Devour it!</button>
-  {{/each}}
-</ul>
-
-<ul>
-  {{#each cats}}
-    {{#if eaten}}
-    {{/if}}
-  {{/each}}
-</ul>
-
-<h2>Add a Cat</h2>
-<form class="create-form">
-
-  <div class="form-group">
-    <label for="ca">Cat Name:</label>
-    <input type="text" id="ca" name="name">
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">FREE BURGERS!</h1>
+    <p class="lead">Lets Eat!</p>
   </div>
+</div>
 
-  <div class="form-group">
-    <label for="sleepy">Sleepy?</label><br>
-    <input type="radio" name="sleepy" value="1" checked> Sleepy!<br>
-    <input type="radio" name="sleepy" value="0"> Awake
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6">
+      <h3>Free Burgers</h3>
+      {{#each burgers}}
+        {{#unless devoured}}
+          <div class="card">
+            <div class="card-body">
+              <h2>{{burger_name}}</h2>
+              <button type="button" class="btn btn-dark eat-burger" data-id="{{this.id}}">Devour it!</button>
+            </div>
+          </div>            
+        {{/unless}}
+      {{/each}}
+    </div>
+    <div class="col-lg-6">
+      <h3>Eaten Burgers</h3>
+      {{#each burgers}}
+        {{#if devoured}}
+          <div class="card">
+            <div class="card-body">
+              <h2>{{burger_name}}</h2>
+              <button type="button" class="btn btn-dark eat-burger" data-id="{{this.id}}">Devour it!</button>
+            </div>
+          </div>            
+        {{/if}}
+      {{/each}}
+    </div>
   </div>
-
-  <button type="submit">Add Cat</button>
-</form>
+</div>
